@@ -38,6 +38,30 @@ function init() {
     document.getElementById('pauseBtn').addEventListener('click', togglePause);
     document.getElementById('restartBtn').addEventListener('click', restartGame);
     
+    // Direction button event listeners
+    document.getElementById('upBtn').addEventListener('click', () => handleDirectionButton('up'));
+    document.getElementById('downBtn').addEventListener('click', () => handleDirectionButton('down'));
+    document.getElementById('leftBtn').addEventListener('click', () => handleDirectionButton('left'));
+    document.getElementById('rightBtn').addEventListener('click', () => handleDirectionButton('right'));
+    
+    // Touch event support for mobile - prevent default to avoid scrolling
+    document.getElementById('upBtn').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleDirectionButton('up');
+    });
+    document.getElementById('downBtn').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleDirectionButton('down');
+    });
+    document.getElementById('leftBtn').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleDirectionButton('left');
+    });
+    document.getElementById('rightBtn').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleDirectionButton('right');
+    });
+    
     // Initialize worm in the center
     resetGame();
     drawGame();
@@ -230,6 +254,32 @@ function handleKeyPress(e) {
             break;
         case ' ':
             togglePause();
+            break;
+    }
+}
+
+function handleDirectionButton(dir) {
+    // Change direction based on button press
+    switch (dir) {
+        case 'up':
+            if (direction.y === 0) {
+                nextDirection = { x: 0, y: -1 };
+            }
+            break;
+        case 'down':
+            if (direction.y === 0) {
+                nextDirection = { x: 0, y: 1 };
+            }
+            break;
+        case 'left':
+            if (direction.x === 0) {
+                nextDirection = { x: -1, y: 0 };
+            }
+            break;
+        case 'right':
+            if (direction.x === 0) {
+                nextDirection = { x: 1, y: 0 };
+            }
             break;
     }
 }
