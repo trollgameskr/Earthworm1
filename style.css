@@ -114,6 +114,58 @@ button:active {
     display: none;
 }
 
+/* Direction controls (D-pad) */
+.direction-controls {
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.dpad {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 5px;
+    justify-items: center;
+}
+
+.dir-btn {
+    width: 70px;
+    height: 70px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.8em;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.dir-btn:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+.dir-btn:active {
+    background: #5a67d8;
+    transform: scale(0.95);
+    box-shadow: 0 1px 5px rgba(102, 126, 234, 0.3);
+}
+
+.middle-row {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5px;
+    align-items: center;
+}
+
+.center-space {
+    width: 70px;
+    height: 70px;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
@@ -136,5 +188,16 @@ button:active {
     button {
         margin: 5px;
         padding: 10px 20px;
+    }
+    
+    .dir-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+    }
+    
+    .center-space {
+        width: 60px;
+        height: 60px;
     }
 }
