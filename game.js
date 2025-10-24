@@ -3,6 +3,7 @@ const GRID_SIZE = 20;
 const CANVAS_SIZE = 400;
 const INITIAL_SPEED = 150;
 const SPEED_INCREMENT = 5;
+const MIN_SPEED = 50;
 
 // Game state
 let canvas, ctx;
@@ -112,7 +113,7 @@ function update() {
         spawnFood();
         
         // Increase speed slightly
-        if (gameSpeed > 50) {
+        if (gameSpeed > MIN_SPEED) {
             gameSpeed -= SPEED_INCREMENT;
             clearInterval(gameLoop);
             gameLoop = setInterval(update, gameSpeed);
@@ -200,8 +201,8 @@ function spawnFood() {
 function handleKeyPress(e) {
     const key = e.key;
     
-    // Prevent default behavior for arrow keys
-    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
+    // Prevent default behavior for arrow keys and space
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(key)) {
         e.preventDefault();
     }
     
