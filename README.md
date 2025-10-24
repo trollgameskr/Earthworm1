@@ -24,6 +24,12 @@ GitHub Pages에서 플레이: [게임 시작하기](https://trollgameskr.github.
 1. 저장소 클론
 2. `index.html` 파일을 브라우저에서 열기
 
+## 📦 배포
+
+이 프로젝트는 GitHub Actions를 사용하여 자동으로 GitHub Pages에 배포됩니다.
+- `main` 브랜치에 푸시하면 자동으로 배포가 실행됩니다.
+- GitHub Pages 설정에서 소스를 "GitHub Actions"로 설정하세요.
+
 ## 📝 기술 스택
 
 - HTML5 Canvas
